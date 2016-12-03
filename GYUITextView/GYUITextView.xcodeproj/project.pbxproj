@@ -14,6 +14,7 @@
 		B06BEDFD1DF279C90050B7AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06BEDFB1DF279C90050B7AE /* LaunchScreen.storyboard */; };
 		B06BEE081DF279C90050B7AE /* GYUITextViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE071DF279C90050B7AE /* GYUITextViewTests.swift */; };
 		B06BEE131DF279C90050B7AE /* GYUITextViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE121DF279C90050B7AE /* GYUITextViewUITests.swift */; };
+		B06BEE221DF27B290050B7AE /* GYUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE211DF27B290050B7AE /* GYUITextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B06BEE0E1DF279C90050B7AE /* GYUITextViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GYUITextViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06BEE121DF279C90050B7AE /* GYUITextViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYUITextViewUITests.swift; sourceTree = "<group>"; };
 		B06BEE141DF279C90050B7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B06BEE211DF27B290050B7AE /* GYUITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYUITextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		B06BEDF11DF279C90050B7AE /* GYUITextView */ = {
 			isa = PBXGroup;
 			children = (
+				B06BEE201DF27B020050B7AE /* GYUITextView */,
 				B06BEDF21DF279C90050B7AE /* AppDelegate.swift */,
 				B06BEDF41DF279C90050B7AE /* ViewController.swift */,
 				B06BEDF61DF279C90050B7AE /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				B06BEE141DF279C90050B7AE /* Info.plist */,
 			);
 			path = GYUITextViewUITests;
+			sourceTree = "<group>";
+		};
+		B06BEE201DF27B020050B7AE /* GYUITextView */ = {
+			isa = PBXGroup;
+			children = (
+				B06BEE211DF27B290050B7AE /* GYUITextView.swift */,
+			);
+			path = GYUITextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 			files = (
 				B06BEDF51DF279C90050B7AE /* ViewController.swift in Sources */,
 				B06BEDF31DF279C90050B7AE /* AppDelegate.swift in Sources */,
+				B06BEE221DF27B290050B7AE /* GYUITextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
