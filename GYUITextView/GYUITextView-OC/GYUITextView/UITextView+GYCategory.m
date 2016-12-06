@@ -61,7 +61,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    self.scrollIndicatorInsets = UIEdgeInsetsZero;
     CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
     
     if (textFrame.size.height > self.frame.size.height &&  200 > textFrame.size.height) {
