@@ -15,6 +15,13 @@
 
 
 /**
+ 占位符的字体大小
+ */
+@property (nonatomic,strong) UIFont *placeholder_font;
+
+
+
+/**
  占位符字体颜色
  */
 @property (nonatomic,strong) UIColor *placeholder_color;

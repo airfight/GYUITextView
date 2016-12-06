@@ -11,6 +11,8 @@
 @implementation UITextView (GYCategory)
 @dynamic placeholder;
 @dynamic placeholder_color;
+@dynamic placeholder_font;
+
 - (void)setPlaceholder:(NSString *)placeholder
 {
     UILabel *placeHolderLabel = [[UILabel alloc] init];
@@ -25,6 +27,13 @@
     //UITextView有一个叫做“_placeHolderLabel”的私有变量
     [self setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     
+}
+
+
+-(void)setPlaceholder_font:(UIFont *)placeholder_font
+{
+    UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
+    lb.font = placeholder_font;
 }
 
 - (void)setPlaceholder_color:(UIColor *)placeholder_color

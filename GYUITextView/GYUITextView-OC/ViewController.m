@@ -22,7 +22,9 @@
     textView.frame = CGRectMake(20, 40, 200, 200);
     textView.placeholder = @"请输入姓名鬼纸质大哇哦1大";
     textView.placeholder_color = [UIColor redColor];
+    textView.placeholder_font = [UIFont systemFontOfSize:20.f];
     textView.font = [UIFont systemFontOfSize:15.0f];
+
     [self.view addSubview:textView];
 
     
