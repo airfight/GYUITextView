@@ -20,11 +20,17 @@
 @property (nonatomic,strong) UIFont *placeholder_font;
 
 
-
 /**
  占位符字体颜色
  */
 @property (nonatomic,strong) UIColor *placeholder_color;
 
+
+/**
+ 自动增长
+ */
+@property (nonatomic,assign) BOOL isAutoHeight;
+
+- (void)setMaxAutoHeight:(CGFloat)maxAutoHeight;
 
 @end
