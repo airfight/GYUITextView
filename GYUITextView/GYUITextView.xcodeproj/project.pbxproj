@@ -24,6 +24,7 @@
 		B06BEE441DF2A2F20050B7AE /* GYUITextView_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE431DF2A2F20050B7AE /* GYUITextView_OCTests.m */; };
 		B06BEE4F1DF2A2F20050B7AE /* GYUITextView_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE4E1DF2A2F20050B7AE /* GYUITextView_OCUITests.m */; };
 		B06BEE5D1DF2A3200050B7AE /* GYUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */; };
+		B07AAC891DF6E0C600128515 /* UITextView+GYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		B06BEE501DF2A2F20050B7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B06BEE5B1DF2A3200050B7AE /* GYUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYUITextView.h; sourceTree = "<group>"; };
 		B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYUITextView.m; sourceTree = "<group>"; };
+		B07AAC871DF6E0C600128515 /* UITextView+GYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+GYCategory.h"; sourceTree = "<group>"; };
+		B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GYCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 			children = (
 				B06BEE5B1DF2A3200050B7AE /* GYUITextView.h */,
 				B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */,
+				B07AAC871DF6E0C600128515 /* UITextView+GYCategory.h */,
+				B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */,
 			);
 			path = GYUITextView;
 			sourceTree = "<group>";
@@ -394,7 +399,7 @@
 					};
 					B06BEE261DF2A2F10050B7AE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NFC68K2BKB;
+						DevelopmentTeam = UZZG6NM74T;
 						ProvisioningStyle = Automatic;
 					};
 					B06BEE3E1DF2A2F20050B7AE = {
@@ -520,6 +525,7 @@
 				B06BEE2E1DF2A2F20050B7AE /* AppDelegate.m in Sources */,
 				B06BEE2B1DF2A2F20050B7AE /* main.m in Sources */,
 				B06BEE5D1DF2A3200050B7AE /* GYUITextView.m in Sources */,
+				B07AAC891DF6E0C600128515 /* UITextView+GYCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NFC68K2BKB;
+				DEVELOPMENT_TEAM = UZZG6NM74T;
 				INFOPLIST_FILE = "GYUITextView-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jade.GYUITextView-OC";
@@ -793,7 +799,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NFC68K2BKB;
+				DEVELOPMENT_TEAM = UZZG6NM74T;
 				INFOPLIST_FILE = "GYUITextView-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jade.GYUITextView-OC";
@@ -897,6 +903,7 @@
 				B06BEE521DF2A2F20050B7AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B06BEE581DF2A2F20050B7AE /* Build configuration list for PBXNativeTarget "GYUITextView-OCTests" */ = {
 			isa = XCConfigurationList;
@@ -905,6 +912,7 @@
 				B06BEE541DF2A2F20050B7AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B06BEE591DF2A2F20050B7AE /* Build configuration list for PBXNativeTarget "GYUITextView-OCUITests" */ = {
 			isa = XCConfigurationList;
@@ -913,6 +921,7 @@
 				B06BEE561DF2A2F20050B7AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

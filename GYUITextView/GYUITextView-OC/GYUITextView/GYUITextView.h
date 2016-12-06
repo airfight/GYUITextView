@@ -17,7 +17,13 @@
 
 @interface GYUITextView : UITextView
 
+
+/**占位符*/
 @property (copy,nonatomic) NSString *placeholder;
+
+@property (copy,nonatomic) UIColor *placeholder_Color;
+
+
 @property (strong,nonatomic) NSIndexPath *indexPath;
 
 @property (nonatomic,assign) NSInteger maxTextLength;
