@@ -17,6 +17,8 @@
 
 @interface UITextView (GYCategory)
 
+/*########################属性###########################*/
+
 /**占位符*/
 @property (copy,nonatomic) NSString *placeholder;
 
@@ -30,16 +32,22 @@
  */
 @property (nonatomic,strong) UIColor *placeholder_color;
 
+/*########################成员变量###########################*/
+
 /**
  自动增长
  */
 @property (nonatomic,assign) BOOL isAutoHeight;
 
-
 /**
- 最高增长高度 成员变量
+ 最高增长高度
  */
 @property (nonatomic,assign) CGFloat maxAutoHeight;
+
+/**
+ 最小收缩高度
+ */
+@property (nonatomic,assign) CGFloat minAutoHeight;
 
 
 @end

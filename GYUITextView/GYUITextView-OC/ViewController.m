@@ -21,12 +21,13 @@
 
     UITextView *textView = [[UITextView alloc] init];
     textView.frame = CGRectMake(20, 40, 300, 100);
-    textView.placeholder = @"请输入姓名鬼纸质大哇哦1大都白搭的货物爱德华2饿1额121额12饿1额2";
+    textView.placeholder = @"请输入姓名鬼纸质大哇哦1大都白搭的货物爱德华2饿1额121额12饿1额你说的是额121额12饿1额你说的是额121额12饿1额你说的是什么鬼";
     textView.placeholder_color = [UIColor purpleColor];
-    textView.placeholder_font = [UIFont systemFontOfSize:15.f];
-    textView.font = [UIFont systemFontOfSize:15.0f];
+    textView.placeholder_font = [UIFont systemFontOfSize:20.f];
+    textView.font = [UIFont systemFontOfSize:20.0f];
     textView.isAutoHeight = YES;
-    textView.maxAutoHeight = 200.f;
+//    textView.minAutoHeight = 50.f;
+//    textView.maxAutoHeight = 200.f;
 //    [textView setMaxAutoHeight:200];
     textView.backgroundColor = [UIColor redColor];
     [self.view addSubview:textView];
