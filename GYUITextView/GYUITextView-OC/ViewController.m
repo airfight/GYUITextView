@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "GYUITextView.h"
 #import "UITextView+GYCategory.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 @interface ViewController ()
 
 @end
@@ -17,17 +19,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    // 通过运行时，发现UITextView有一个叫做“_placeHolderLabel”的私有变量
+    unsigned int count = 0;
+    Ivar *ivars = class_copyIvarList([UITextView class], &count);
+    
+    for (int i = 0; i < count; i++) {
+        Ivar ivar = ivars[i];
+        const char *name = ivar_getName(ivar);
+        NSString *objcName = [NSString stringWithUTF8String:name];
+        NSLog(@"%d : %@",i,objcName);
+    }
 
     UITextView *textView = [[UITextView alloc] init];
     textView.frame = CGRectMake(20, 40, 300, 100);
     textView.placeholder = @"请输入姓名鬼纸质大哇哦1大都白搭的货物爱德华2饿1额121额12饿1额你说的是额121额12饿1额你说的是额121额12饿1额你说的是什么鬼";
     textView.placeholder_color = [UIColor purpleColor];
-    textView.placeholder_font = [UIFont systemFontOfSize:14.f];
-    textView.font = [UIFont systemFontOfSize:14.f];
-//    textView.isAutoHeight = YES;
-//    textView.minAutoHeight = 60.f;
-//    textView.maxAutoHeight = 400.f;
+    textView.placeholder_font = [UIFont systemFontOfSize:14];
+    textView.font = [UIFont systemFontOfSize:14];
+    textView.isAutoHeight = YES;
+    textView.minAutoHeight = 60.f;
+    textView.maxAutoHeight = 400.f;
 
     textView.backgroundColor = [UIColor redColor];
     [self.view addSubview:textView];

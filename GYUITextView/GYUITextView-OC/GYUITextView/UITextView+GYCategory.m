@@ -32,14 +32,14 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     UILabel *placeHolderLabel = [[UILabel alloc] init];
     placeHolderLabel.text = placeholder;
     placeHolderLabel.textColor = [UIColor lightGrayColor];
-        CGRect textFrame = [placeholder boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
-    placeHolderLabel.frame = CGRectMake(3, 3, self.frame.size.width - 3,self.frame.size.height - 3);
+    placeHolderLabel.frame = CGRectMake(5, 0, self.frame.size.width - 10,self.frame.size.height);
     placeHolderLabel.numberOfLines = 0;
+    placeHolderLabel.contentMode = UIViewContentModeTop;
     //此处无需设置label字体的大小，否则会导致异常
     //placeHolderLabel.font = [UIFont systemFontOfSize:15.0f];
-    [placeHolderLabel sizeToFit];
     [self addSubview:placeHolderLabel];
-    
+    [placeHolderLabel sizeToFit];
+
     //UITextView有一个叫做“_placeHolderLabel”的私有变量
     [self setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     self.scrollsToTop = NO;
@@ -106,9 +106,8 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
     }
-    
-    if (height < self.frame.size.height && self.minAutoHeight < height&& self.isAutoHeight) {
-       self.scrollEnabled = YES;
+//    && self.minAutoHeight != 0
+    if (height < self.frame.size.height && self.minAutoHeight < height&& self.isAutoHeight ) {
        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
     }
@@ -118,7 +117,6 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     }
     
     if (height > self.frame.size.height && self.isAutoHeight) {
-        self.scrollEnabled = YES;
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
     }
@@ -128,7 +126,6 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     }
     
     if (height < self.frame.size.height && self.isAutoHeight) {
-        self.scrollEnabled = YES;
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
     }
