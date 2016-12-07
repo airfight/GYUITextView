@@ -36,7 +36,7 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     placeHolderLabel.numberOfLines = 0;
     placeHolderLabel.contentMode = UIViewContentModeTop;
     //此处无需设置label字体的大小，否则会导致异常
-    //placeHolderLabel.font = [UIFont systemFontOfSize:15.0f];
+//    placeHolderLabel.font = [UIFont systemFontOfSize:14.0f];
     [self addSubview:placeHolderLabel];
     [placeHolderLabel sizeToFit];
 
