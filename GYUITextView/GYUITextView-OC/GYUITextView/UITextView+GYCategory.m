@@ -2,20 +2,28 @@
 //  UITextView+GYCategory.m
 //  GYUITextView
 //
-//  Created by giant on 16/12/6.
+//  Created by ZGY on 16/12/3.
 //  Copyright © 2016年 giant. All rights reserved.
 //
+//  Author:        Airfight
+//  My GitHub:     https://github.com/airfight
+//  My Blog:       http://airfight.github.io/
+//  My Jane book:  http://www.jianshu.com/users/17d6a01e3361
+//  Current Time:  16/12/3  下午2:52
+//  GiantForJade:  Efforts to do my best
+//  Real developers ship.
 
 #import "UITextView+GYCategory.h"
+#import <objc/runtime.h>
 
-
-
+static const void *GYCategoryKey = &GYCategoryKey;
 @implementation UITextView (GYCategory)
 
 @dynamic placeholder;
 @dynamic placeholder_color;
 @dynamic placeholder_font;
 @dynamic isAutoHeight;
+@dynamic maxAutoHeight;
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
@@ -51,11 +59,14 @@
     [self setNeedsLayout];
 }
 
-
+- (CGFloat)maxAutoHeight
+{
+    return [objc_getAssociatedObject(self, GYCategoryKey) floatValue];
+}
 
 - (void)setMaxAutoHeight:(CGFloat)maxAutoHeight
 {
-
+    objc_setAssociatedObject(self,GYCategoryKey,@(maxAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)layoutSubviews
@@ -64,7 +75,7 @@
     self.scrollIndicatorInsets = UIEdgeInsetsZero;
     CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
     
-    if (textFrame.size.height > self.frame.size.height &&  200 > textFrame.size.height) {
+    if (textFrame.size.height > self.frame.size.height &&  self.maxAutoHeight > textFrame.size.height) {
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, textFrame.size.height);
         return;
