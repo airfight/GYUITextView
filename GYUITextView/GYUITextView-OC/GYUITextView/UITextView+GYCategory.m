@@ -32,6 +32,7 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     UILabel *placeHolderLabel = [[UILabel alloc] init];
     placeHolderLabel.text = placeholder;
     placeHolderLabel.textColor = [UIColor lightGrayColor];
+        CGRect textFrame = [placeholder boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
     placeHolderLabel.frame = CGRectMake(3, 3, self.frame.size.width - 3,self.frame.size.height - 3);
     placeHolderLabel.numberOfLines = 0;
     //此处无需设置label字体的大小，否则会导致异常
