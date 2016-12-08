@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "GYUITextView.h"
 #import "UITextView+GYCategory.h"
 #import <objc/runtime.h>
 #import <objc/message.h>

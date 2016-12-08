@@ -45,6 +45,7 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 
 -(void)setPlaceholder_font:(UIFont *)placeholder_font
 {
+    objc_setAssociatedObject(self,GYplaceholder_font,placeholder_font,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
     lb.font = placeholder_font;
     [lb sizeToFit];
@@ -52,7 +53,8 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 
 - (UIFont *)placeholder_font
 {
-    return [UIFont systemFontOfSize:0];
+  
+     return (UIFont *)objc_getAssociatedObject(self, GYplaceholder_font) ;
 }
 
 - (void)setPlaceholder_color:(UIColor *)placeholder_color
@@ -60,18 +62,6 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
     UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
     lb.textColor = placeholder_color;
 }
-
-
-//- (UIFont *)placeholder_font
-//{
-//    return [UIFont systemFontOfSize:0];
-//}
-//
-//- (void)setPlaceholder_color:(UIColor *)placeholder_color
-//{
-//    UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
-//    lb.textColor = placeholder_color;
-//}
 
 - (BOOL)isAutoHeight
 {
@@ -110,15 +100,24 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
     [super layoutSubviews];
     self.scrollIndicatorInsets = UIEdgeInsetsZero;
     self.scrollEnabled = YES;
-    NSLog(@"%@",self.placeholder_font);
+    if (self.placeholder_font.ascender <= 0) {
+        UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
+        lb.font = self.font;
+        [lb sizeToFit];
+    }
     if (self.minAutoHeight <= 0) {
         self.minAutoHeight = self.frame.size.height;
     }
 //    CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
     NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
+    
+    if (height < self.minAutoHeight) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.minAutoHeight);
+        return;
+    }
 
     if (height > self.frame.size.height &&  self.maxAutoHeight > height && self.isAutoHeight) {
-        //防止换行 时高度变化导致顶部文字位置移动
+        //0.1 防止换行 时高度变化导致顶部文字位置移动
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height + 0.1);
         return;
     }
@@ -136,15 +135,6 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height + 0.1);
         return;
     }
-
-//    if (self.minAutoHeight != 0) {
-//        return;
-//    }
-//    
-//    if (height < self.frame.size.height && self.isAutoHeight) {
-//        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
-//        return;
-//    }
 
 }
 

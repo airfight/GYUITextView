@@ -23,7 +23,6 @@
 		B06BEE391DF2A2F20050B7AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06BEE371DF2A2F20050B7AE /* LaunchScreen.storyboard */; };
 		B06BEE441DF2A2F20050B7AE /* GYUITextView_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE431DF2A2F20050B7AE /* GYUITextView_OCTests.m */; };
 		B06BEE4F1DF2A2F20050B7AE /* GYUITextView_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE4E1DF2A2F20050B7AE /* GYUITextView_OCUITests.m */; };
-		B06BEE5D1DF2A3200050B7AE /* GYUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */; };
 		B07AAC891DF6E0C600128515 /* UITextView+GYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +88,6 @@
 		B06BEE4A1DF2A2F20050B7AE /* GYUITextView-OCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GYUITextView-OCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06BEE4E1DF2A2F20050B7AE /* GYUITextView_OCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUITextView_OCUITests.m; sourceTree = "<group>"; };
 		B06BEE501DF2A2F20050B7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B06BEE5B1DF2A3200050B7AE /* GYUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYUITextView.h; sourceTree = "<group>"; };
-		B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYUITextView.m; sourceTree = "<group>"; };
 		B07AAC871DF6E0C600128515 /* UITextView+GYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+GYCategory.h"; sourceTree = "<group>"; };
 		B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GYCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,8 +250,6 @@
 		B06BEE5A1DF2A3130050B7AE /* GYUITextView */ = {
 			isa = PBXGroup;
 			children = (
-				B06BEE5B1DF2A3200050B7AE /* GYUITextView.h */,
-				B06BEE5C1DF2A3200050B7AE /* GYUITextView.m */,
 				B07AAC871DF6E0C600128515 /* UITextView+GYCategory.h */,
 				B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */,
 			);
@@ -524,7 +519,6 @@
 				B06BEE311DF2A2F20050B7AE /* ViewController.m in Sources */,
 				B06BEE2E1DF2A2F20050B7AE /* AppDelegate.m in Sources */,
 				B06BEE2B1DF2A2F20050B7AE /* main.m in Sources */,
-				B06BEE5D1DF2A3200050B7AE /* GYUITextView.m in Sources */,
 				B07AAC891DF6E0C600128515 /* UITextView+GYCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
