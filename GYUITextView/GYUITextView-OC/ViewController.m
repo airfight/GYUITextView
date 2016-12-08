@@ -16,6 +16,11 @@
 @end
 
 @implementation ViewController
+{
+    UITextView *textView;
+    UIView *SubmitView;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,13 +38,12 @@
 
     //导航栏导致占位符问题
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _gy_textView.placeholder = @"请输入帅器的名字";
-    _gy_textView.isAutoHeight = YES;
-    _gy_textView.font = [UIFont systemFontOfSize:19.f];
-    /*
-    UITextView *textView = [[UITextView alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:UITextViewTextDidChangeNotification object:nil];
+
+    textView = [[UITextView alloc] init];
     textView.frame = CGRectMake(20, 80, self.view.frame.size.width - 40, 80);
-    textView.placeholder = @"请输入姓名鬼纸质大哇e12e我断后端午后读完多好哇护短对我好的";
+    textView.placeholder = @"请输入帅气的名字";
     textView.placeholder_color = [UIColor purpleColor];
     textView.isAutoHeight = YES;
 
@@ -48,12 +52,14 @@
     textView.maxAutoHeight = 200.f;
     textView.backgroundColor = [UIColor redColor];
     [self.view addSubview:textView];
-    
-    UIView *SubmitView = [[UIView alloc] init];
+
+    SubmitView = [[UIView alloc] init];
     SubmitView.frame = CGRectMake(40, textView.frame.size.height + textView.frame.origin.y + 5, self.view.frame.size.width - 80, 40);
     SubmitView.backgroundColor = [UIColor blueColor];
     SubmitView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:SubmitView];
+
+    /*
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     SubmitView.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -71,11 +77,30 @@
 
 }
 
-- (void)viewWillLayoutSubviews
+- (void)action:(NSNotification *)info
 {
-    [super viewWillLayoutSubviews];
-    [self setNeedsFocusUpdate];
+    SubmitView.frame = CGRectMake(40, textView.frame.size.height + textView.frame.origin.y + 5, self.view.frame.size.width - 80, 40);
+    
 }
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)updateViewConstraints
+{
+    [super updateViewConstraints];
+    NSLog(@"updateViewConstraints");
+}
+
+- (void)updateFocusIfNeeded
+{
+    [super updateFocusIfNeeded];
+    NSLog(@"updateFocusIfNeeded");
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

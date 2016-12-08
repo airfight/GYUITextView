@@ -37,7 +37,7 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
     placeHolderLabel.contentMode = UIViewContentModeTopLeft;
     placeHolderLabel.numberOfLines = 0;
     [self addSubview:placeHolderLabel];
-    //UITextView有一个叫做“_placeHolderLabel”的私有变量
+
     [self setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     
     self.enablesReturnKeyAutomatically = YES;
@@ -101,6 +101,7 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    [self.superview layoutSubviews];
     self.scrollIndicatorInsets = UIEdgeInsetsZero;
     self.scrollEnabled = YES;
     if (self.placeholder_font.ascender <= 0) {
