@@ -115,7 +115,7 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 //    CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
     NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
     
-    if (height < self.minAutoHeight && self.isAutoHeight) {
+    if (self.frame.size.height > self.minAutoHeight && self.isAutoHeight && height < self.minAutoHeight) {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.minAutoHeight);
         return;
     }

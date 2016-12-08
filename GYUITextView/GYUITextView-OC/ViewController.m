@@ -46,7 +46,7 @@
     textView.placeholder = @"请输入帅气的名字";
     textView.placeholder_color = [UIColor purpleColor];
     textView.isAutoHeight = YES;
-
+    textView.minAutoHeight = 150;
 //    textView.placeholder_font = [UIFont systemFontOfSize:20];
     textView.font = [UIFont systemFontOfSize:20];
     textView.maxAutoHeight = 200.f;
