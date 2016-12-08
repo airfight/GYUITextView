@@ -22,10 +22,7 @@
 /**占位符*/
 @property (copy,nonatomic) NSString *placeholder;
 
-/**
- 占位符的字体大小
- */
-@property (nonatomic,strong) UIFont *placeholder_font;
+
 
 /**
  占位符字体颜色
@@ -33,6 +30,11 @@
 @property (nonatomic,strong) UIColor *placeholder_color;
 
 /*########################成员变量###########################*/
+
+/**
+ 占位符的字体大小
+ */
+@property (nonatomic,strong) UIFont *placeholder_font;
 
 /**
  自动增长

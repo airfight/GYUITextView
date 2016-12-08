@@ -19,6 +19,7 @@
 static const void *GYMaxAutoHeight = &GYMaxAutoHeight;
 static const void *GYMinAutoHeight = &GYMinAutoHeight;
 static const void *GYIsAutoBool  = &GYIsAutoBool;
+static const void *GYplaceholder_font  = &GYplaceholder_font;
 @implementation UITextView (GYCategory)
 
 @dynamic placeholder;
@@ -32,19 +33,12 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     UILabel *placeHolderLabel = [[UILabel alloc] init];
     placeHolderLabel.text = placeholder;
     placeHolderLabel.textColor = [UIColor lightGrayColor];
-    placeHolderLabel.frame = CGRectMake(5, 0, self.frame.size.width - 10,self.frame.size.height);
+    placeHolderLabel.frame = CGRectMake(5,self.textContainerInset.top, self.frame.size.width - 10,self.frame.size.height);
+    placeHolderLabel.contentMode = UIViewContentModeTopLeft;
     placeHolderLabel.numberOfLines = 0;
-    placeHolderLabel.contentMode = UIViewContentModeTop;
-    [placeHolderLabel sizeToFit];
-    //此处无需设置label字体的大小，否则会导致光标与占位符异常
-//    placeHolderLabel.font = [UIFont systemFontOfSize:14.0f];
     [self addSubview:placeHolderLabel];
     //UITextView有一个叫做“_placeHolderLabel”的私有变量
     [self setValue:placeHolderLabel forKey:@"_placeholderLabel"];
-    self.scrollsToTop = NO;
-    self.scrollEnabled = NO;
-    self.showsVerticalScrollIndicator = NO;
-    self.enablesReturnKeyAutomatically = YES;
     
 }
 
@@ -53,6 +47,12 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
 {
     UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
     lb.font = placeholder_font;
+    [lb sizeToFit];
+}
+
+- (UIFont *)placeholder_font
+{
+    return [UIFont systemFontOfSize:0];
 }
 
 - (void)setPlaceholder_color:(UIColor *)placeholder_color
@@ -60,6 +60,18 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
     lb.textColor = placeholder_color;
 }
+
+
+//- (UIFont *)placeholder_font
+//{
+//    return [UIFont systemFontOfSize:0];
+//}
+//
+//- (void)setPlaceholder_color:(UIColor *)placeholder_color
+//{
+//    UILabel *lb = (UILabel *)[self valueForKey:@"_placeholderLabel"];
+//    lb.textColor = placeholder_color;
+//}
 
 - (BOOL)isAutoHeight
 {
@@ -98,21 +110,21 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     [super layoutSubviews];
     self.scrollIndicatorInsets = UIEdgeInsetsZero;
     self.scrollEnabled = YES;
-
+    NSLog(@"%@",self.placeholder_font);
     if (self.minAutoHeight <= 0) {
         self.minAutoHeight = self.frame.size.height;
     }
 //    CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
-    //换行时的部分微差
-    NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height) + 10;
+    NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
 
     if (height > self.frame.size.height &&  self.maxAutoHeight > height && self.isAutoHeight) {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
+        //防止换行 时高度变化导致顶部文字位置移动
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height + 0.1);
         return;
     }
 
     if (height < self.frame.size.height && self.minAutoHeight < height&& self.isAutoHeight ) {
-       self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
+       self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height + 0.1);
         return;
     }
     
@@ -121,18 +133,18 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     }
     
     if (height > self.frame.size.height && self.isAutoHeight) {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height + 0.1);
         return;
     }
-    
-    if (self.minAutoHeight != 0) {
-        return;
-    }
-    
-    if (height < self.frame.size.height && self.isAutoHeight) {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
-        return;
-    }
+
+//    if (self.minAutoHeight != 0) {
+//        return;
+//    }
+//    
+//    if (height < self.frame.size.height && self.isAutoHeight) {
+//        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
+//        return;
+//    }
 
 }
 
