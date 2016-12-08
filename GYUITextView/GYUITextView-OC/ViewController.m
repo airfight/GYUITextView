@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *gy_textView;
 
 @end
 
@@ -30,20 +31,51 @@
         NSLog(@"%d : %@",i,objcName);
     }
 
+    //导航栏导致占位符问题
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _gy_textView.placeholder = @"请输入帅器的名字";
+    _gy_textView.isAutoHeight = YES;
+    _gy_textView.font = [UIFont systemFontOfSize:19.f];
+    /*
     UITextView *textView = [[UITextView alloc] init];
-    textView.frame = CGRectMake(20, 40, 300, 80);
-    textView.placeholder = @"请输入姓名鬼纸质大哇";
+    textView.frame = CGRectMake(20, 80, self.view.frame.size.width - 40, 80);
+    textView.placeholder = @"请输入姓名鬼纸质大哇e12e我断后端午后读完多好哇护短对我好的";
     textView.placeholder_color = [UIColor purpleColor];
     textView.isAutoHeight = YES;
 
 //    textView.placeholder_font = [UIFont systemFontOfSize:20];
     textView.font = [UIFont systemFontOfSize:20];
-    textView.maxAutoHeight = 400.f;
+    textView.maxAutoHeight = 200.f;
     textView.backgroundColor = [UIColor redColor];
     [self.view addSubview:textView];
+    
+    UIView *SubmitView = [[UIView alloc] init];
+    SubmitView.frame = CGRectMake(40, textView.frame.size.height + textView.frame.origin.y + 5, self.view.frame.size.width - 80, 40);
+    SubmitView.backgroundColor = [UIColor blueColor];
+    SubmitView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:SubmitView];
+    textView.translatesAutoresizingMaskIntoConstraints = NO;
+    SubmitView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [textView addConstraint:[NSLayoutConstraint constraintWithItem:textView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200]];
+    [textView addConstraint:[NSLayoutConstraint constraintWithItem:textView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:SubmitView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:textView attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:SubmitView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:textView attribute:NSLayoutAttributeHeight multiplier:0.5 constant:0]];
+      [self.view addConstraint:[NSLayoutConstraint constraintWithItem:SubmitView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:textView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:SubmitView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:textView attribute:NSLayoutAttributeBottom multiplier:1 constant:10]];
+     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:textView attribute:NSLayoutAttributeTop | NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop | NSLayoutAttributeLeft multiplier:1 constant:100]];
+       [self.view addConstraint:[NSLayoutConstraint constraintWithItem:textView attribute:  NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:100]];
+     */
+
 }
 
-
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    [self setNeedsFocusUpdate];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
