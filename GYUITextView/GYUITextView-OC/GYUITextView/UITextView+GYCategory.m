@@ -35,11 +35,10 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     placeHolderLabel.frame = CGRectMake(5, 0, self.frame.size.width - 10,self.frame.size.height);
     placeHolderLabel.numberOfLines = 0;
     placeHolderLabel.contentMode = UIViewContentModeTop;
-    //此处无需设置label字体的大小，否则会导致异常
+    [placeHolderLabel sizeToFit];
+    //此处无需设置label字体的大小，否则会导致光标与占位符异常
 //    placeHolderLabel.font = [UIFont systemFontOfSize:14.0f];
     [self addSubview:placeHolderLabel];
-    [placeHolderLabel sizeToFit];
-
     //UITextView有一个叫做“_placeHolderLabel”的私有变量
     [self setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     self.scrollsToTop = NO;
@@ -90,6 +89,7 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
 
 - (void)setMinAutoHeight:(CGFloat)minAutoHeight
 {
+
     objc_setAssociatedObject(self,GYMinAutoHeight,@(minAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -98,15 +98,19 @@ static const void *GYIsAutoBool  = &GYIsAutoBool;
     [super layoutSubviews];
     self.scrollIndicatorInsets = UIEdgeInsetsZero;
     self.scrollEnabled = YES;
+
+    if (self.minAutoHeight <= 0) {
+        self.minAutoHeight = self.frame.size.height;
+    }
 //    CGRect textFrame = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width-10,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName, nil] context:nil];
-    NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
-    
+    //换行时的部分微差
+    NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height) + 10;
+
     if (height > self.frame.size.height &&  self.maxAutoHeight > height && self.isAutoHeight) {
-        
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
     }
-//    && self.minAutoHeight != 0
+
     if (height < self.frame.size.height && self.minAutoHeight < height&& self.isAutoHeight ) {
        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
         return;
