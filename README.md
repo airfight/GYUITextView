@@ -3,7 +3,7 @@
 
 ****
 ## 效果图
-
+![textgy.gif]
 ## 使用方法
 * 导入头文件#import "UITextView+GYCategory.h"文件
 * 设置相关属性
