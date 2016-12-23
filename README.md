@@ -8,7 +8,7 @@
 * 导入头文件#import "UITextView+GYCategory.h"文件
 * 设置相关属性
 
-`
+```
   textView.placeholder = @"请输入帅气的名字";
   textView.placeholder_color = [UIColor purpleColor];
   textView.isAutoHeight = YES;//设置高度变化
@@ -17,6 +17,6 @@
   textView.font = [UIFont systemFontOfSize:20];//占位符大小默认与此相同
   textView.maxAutoHeight = 200.f;
   
-`
+```
 
 ### 小农丶
