@@ -8,6 +8,7 @@
 * 导入头文件#import "UITextView+GYCategory.h"文件
 * 设置相关属性
 
+
 ```
   textView.placeholder = @"请输入帅气的名字";
   textView.placeholder_color = [UIColor purpleColor];
