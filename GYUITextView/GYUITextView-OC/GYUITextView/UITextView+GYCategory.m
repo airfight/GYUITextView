@@ -30,6 +30,10 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
+    
+//    if (![self valueForKey:@"_placeholderLabel"]) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
+//    }
     UILabel *placeHolderLabel = [[UILabel alloc] init];
     placeHolderLabel.text = placeholder;
     placeHolderLabel.textColor = [UIColor lightGrayColor];
@@ -142,5 +146,7 @@ static const void *GYplaceholder_font  = &GYplaceholder_font;
 
 }
 
-
+- (void)textDidChange {
+    [self layoutSubviews];
+}
 @end

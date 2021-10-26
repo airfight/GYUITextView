@@ -10,9 +10,11 @@
 #import "UITextView+GYCategory.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import "McReplyCommentView.h"
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *gy_textView;
-
+@property (nonatomic,strong) McReplyCommentView *replay;
 @end
 
 @implementation ViewController
@@ -58,6 +60,22 @@
     SubmitView.backgroundColor = [UIColor blueColor];
     SubmitView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:SubmitView];
+    
+    _replay = [[McReplyCommentView alloc] initWithFrame:CGRectMake(10, self.view.frame.size.height - 100, self.view.frame.size.width - 20, 90)];
+    
+    [self.view addSubview:_replay];
+    
+    //监听当键盘将要出现时
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    ////监听当键将要退出时
+     [[NSNotificationCenter defaultCenter] addObserver:self
+                                              selector:@selector(keyboardWillHide:)
+                                                  name:UIKeyboardWillHideNotification
+                                                object:nil];
+    
 
     /*
     textView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -107,5 +125,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma arguments
+
+//当键盘出现
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [value CGRectValue];
+
+    [UIView animateWithDuration:0.1 animations:^{
+        CGRect rect = self.replay.frame;
+        rect.origin.y = keyboardRect.origin.y - 90;
+        self.replay.frame = rect;
+    }];
+}
+
+//当键退出
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [value CGRectValue];
+
+    [UIView animateWithDuration:0.1 animations:^{
+        CGRect rect = self.replay.frame;
+        rect.origin.y = rect.origin.y + keyboardRect.size.height - 90;
+        self.replay.frame = rect;
+
+    }];
+}
 
 @end

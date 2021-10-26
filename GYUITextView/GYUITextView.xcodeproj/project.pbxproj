@@ -24,6 +24,7 @@
 		B06BEE441DF2A2F20050B7AE /* GYUITextView_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE431DF2A2F20050B7AE /* GYUITextView_OCTests.m */; };
 		B06BEE4F1DF2A2F20050B7AE /* GYUITextView_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B06BEE4E1DF2A2F20050B7AE /* GYUITextView_OCUITests.m */; };
 		B07AAC891DF6E0C600128515 /* UITextView+GYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */; };
+		B917D0552727CCBE00EFFE72 /* McReplyCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B917D0542727CCBE00EFFE72 /* McReplyCommentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		B06BEE501DF2A2F20050B7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07AAC871DF6E0C600128515 /* UITextView+GYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+GYCategory.h"; sourceTree = "<group>"; };
 		B07AAC881DF6E0C600128515 /* UITextView+GYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GYCategory.m"; sourceTree = "<group>"; };
+		B917D0532727CCBE00EFFE72 /* McReplyCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = McReplyCommentView.h; sourceTree = "<group>"; };
+		B917D0542727CCBE00EFFE72 /* McReplyCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = McReplyCommentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +215,8 @@
 				B06BEE2D1DF2A2F20050B7AE /* AppDelegate.m */,
 				B06BEE2F1DF2A2F20050B7AE /* ViewController.h */,
 				B06BEE301DF2A2F20050B7AE /* ViewController.m */,
+				B917D0532727CCBE00EFFE72 /* McReplyCommentView.h */,
+				B917D0542727CCBE00EFFE72 /* McReplyCommentView.m */,
 				B06BEE321DF2A2F20050B7AE /* Main.storyboard */,
 				B06BEE351DF2A2F20050B7AE /* Assets.xcassets */,
 				B06BEE371DF2A2F20050B7AE /* LaunchScreen.storyboard */,
@@ -377,7 +382,7 @@
 				TargetAttributes = {
 					B06BEDEE1DF279C90050B7AE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NFC68K2BKB;
+						DevelopmentTeam = 86W2422873;
 						ProvisioningStyle = Automatic;
 					};
 					B06BEE021DF279C90050B7AE = {
@@ -394,7 +399,7 @@
 					};
 					B06BEE261DF2A2F10050B7AE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = UZZG6NM74T;
+						DevelopmentTeam = 86W2422873;
 						ProvisioningStyle = Automatic;
 					};
 					B06BEE3E1DF2A2F20050B7AE = {
@@ -416,6 +421,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -516,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B917D0552727CCBE00EFFE72 /* McReplyCommentView.m in Sources */,
 				B06BEE311DF2A2F20050B7AE /* ViewController.m in Sources */,
 				B06BEE2E1DF2A2F20050B7AE /* AppDelegate.m in Sources */,
 				B06BEE2B1DF2A2F20050B7AE /* main.m in Sources */,
@@ -697,7 +704,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NFC68K2BKB;
+				DEVELOPMENT_TEAM = 86W2422873;
 				INFOPLIST_FILE = GYUITextView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jade.GYUITextView;
@@ -710,7 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NFC68K2BKB;
+				DEVELOPMENT_TEAM = 86W2422873;
 				INFOPLIST_FILE = GYUITextView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jade.GYUITextView;
@@ -781,7 +788,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UZZG6NM74T;
+				DEVELOPMENT_TEAM = 86W2422873;
 				INFOPLIST_FILE = "GYUITextView-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jade.GYUITextView-OC";
@@ -793,7 +800,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UZZG6NM74T;
+				DEVELOPMENT_TEAM = 86W2422873;
 				INFOPLIST_FILE = "GYUITextView-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jade.GYUITextView-OC";

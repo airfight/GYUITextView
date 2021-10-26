@@ -51,5 +51,4 @@
  */
 @property (nonatomic,assign) CGFloat minAutoHeight;
 
-
 @end
